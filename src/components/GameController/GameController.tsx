@@ -23,6 +23,11 @@ import { Cell } from '../../types';
 import { useLocalStorage } from '../../hooks';
 
 /**
+ * Imports styles
+ */
+import { NeonText } from '../NeonText';
+
+/**
  * Displays the component
  */
 export const GameController: React.FC = () => {
@@ -35,6 +40,11 @@ export const GameController: React.FC = () => {
    * Initializes the grid size
    */
   const [gridSize, setGridSize] = useLocalStorage('gridSize', 3);
+
+  /**
+   * Initializes the grid size
+   */
+  const [winner, setWinner] = useState(false);
 
   /**
    * Handles the change of the grid size
@@ -94,12 +104,13 @@ export const GameController: React.FC = () => {
     toggleCell(positionX, positionY + 1);
     toggleCell(positionX - 1, positionY);
     toggleCell(positionX + 1, positionY);
-    console.log(newBoard);
 
     // const isWinner = checkForWinner(newBoard, gameMode);
 
+    const winner = board.every((row) => row.every((cell) => !cell));
+
     setBoard(newBoard);
-    // setIsWinner(isWinner);
+    setWinner(winner);
     // setMovesCount((prevState) => prevState + 1);
   };
 
@@ -115,11 +126,18 @@ export const GameController: React.FC = () => {
     <div>
       <Title />
       <GridSizeSelector changeGridSize={changeGridSize} activeSize={gridSize} />
-      <Board
-        board={board}
-        gridSize={gridSize}
-        toggleCellsAround={toggleCellsAround}
-      />
+      {!winner && (
+        <Board
+          board={board}
+          gridSize={gridSize}
+          toggleCellsAround={toggleCellsAround}
+        />
+      )}
+      {winner && (
+        <NeonText color="orange" fontSize={120}>
+          You Win
+        </NeonText>
+      )}
     </div>
   );
 };

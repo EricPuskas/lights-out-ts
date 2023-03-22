@@ -9,7 +9,6 @@ import { Container } from './BoardCell.styles';
  * Imports types
  */
 import { BoardCellProps } from './BoardCell.types';
-import { Cell } from '../../types';
 
 /**
  * Displays the component

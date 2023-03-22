@@ -26,10 +26,10 @@ export const Container = styled('div', {
     width: 100,
     height: 100,
     backgroundColor: '#2633238',
-    transition: 'backgroundColor 0.3s ease',
+    transition: 'backgroundColor 0.3s ease ',
     border: '1px solid black',
     ...(active && {
-      backgroundColor: 'yellow',
+      backgroundColor: '#f4c50a',
     }),
   };
 });
