@@ -1,8 +1,8 @@
 import React from 'react';
-import { GridSizeProps } from './GridSizeSelector.types';
+import { GridSizeSelectorProps } from './GridSizeSelector.types';
 import { Container, Button } from './GridSizeSelector.styled';
 
-export const GridSizeSelector: React.FC<GridSizeProps> = (props) => {
+export const GridSizeSelector: React.FC<GridSizeSelectorProps> = (props) => {
   const { changeGridSize, activeSize } = props;
 
   const GridSize = [
@@ -13,21 +13,19 @@ export const GridSizeSelector: React.FC<GridSizeProps> = (props) => {
 
   return (
     <Container>
-      <div className="grid-size-selector">
-        {GridSize.map((size) => (
-          <Button
-            key={size.label}
-            className={size.value === activeSize ? 'active' : ''}
-            onClick={() => {
-              if (size.value !== activeSize) {
-                changeGridSize(size.value);
-              }
-            }}
-          >
-            {size.label}
-          </Button>
-        ))}
-      </div>
+      {GridSize.map((size) => (
+        <Button
+          key={size.label}
+          active={size.value === activeSize}
+          onClick={() => {
+            if (size.value !== activeSize) {
+              changeGridSize(size.value);
+            }
+          }}
+        >
+          {size.label}
+        </Button>
+      ))}
     </Container>
   );
 };

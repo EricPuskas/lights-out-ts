@@ -1,14 +1,15 @@
 /**
  * Imports styled
  */
-import { styled } from "@mui/system";
+import { styled } from '@mui/system';
 
 /**
  * Styles the container
  */
-export const Container = styled("div")(() => {
+export const Container = styled('div')(() => {
   return {
-    display: "flex",
-    justifyContent: "center"
+    display: 'flex',
+    justifyContent: 'center',
+    gap: 5,
   };
 });

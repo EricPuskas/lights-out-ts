@@ -10,4 +10,5 @@ export interface BoardRowProps {
   row: Cell[];
   gridSize: number;
   board: Cell[][];
+  toggleCellsAround: (cell: Cell, board: Cell[][]) => void;
 }
