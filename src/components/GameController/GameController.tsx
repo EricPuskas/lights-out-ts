@@ -138,6 +138,7 @@ export const GameController: React.FC = () => {
     setBoard([]);
     setWinner(false);
     initializeBoard(gridSize);
+    setNumClicks(0);
   };
 
   /**
@@ -171,7 +172,7 @@ export const GameController: React.FC = () => {
         </NeonText>
       )}
 
-      <Container>Number of Clicks: {numClicks}</Container>
+      <Container>Number of Moves: {numClicks}</Container>
     </div>
   );
 };

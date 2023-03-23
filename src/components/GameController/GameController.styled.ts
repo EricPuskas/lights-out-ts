@@ -7,7 +7,7 @@ import { styled } from '@mui/system';
 //  */
 export const Container = styled('div')(() => {
   return {
-    maxWidth: 120,
+    // maxWidth: 120,
     display: 'inline-block',
     alignItems: 'center',
     justifyContent: 'center',
@@ -15,5 +15,6 @@ export const Container = styled('div')(() => {
     color: 'white',
     margin: '1rem 0',
     border: 'solid',
+    padding: 12,
   };
 });
