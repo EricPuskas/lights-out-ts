@@ -6,3 +6,5 @@ export interface Cell {
   positionX: number;
   positionY: number;
 }
+
+export type GameMode = 'lights-out' | 'lights-on';

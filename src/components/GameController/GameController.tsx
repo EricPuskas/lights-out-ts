@@ -11,11 +11,12 @@ import lodash from 'lodash';
 import { Board } from '../Board';
 import { GridSizeSelector } from '../GridSizeSelector';
 import { Title } from '../Title';
+import { GameReset } from '../GameReset';
 
 /**
  * Imports types
  */
-import { Cell } from '../../types';
+import { Cell, GameMode } from '../../types';
 
 /**
  * Imports hooks
@@ -26,6 +27,7 @@ import { useLocalStorage } from '../../hooks';
  * Imports styles
  */
 import { NeonText } from '../NeonText';
+import { Container } from './GameController.styled';
 
 /**
  * Displays the component
@@ -47,11 +49,28 @@ export const GameController: React.FC = () => {
   const [winner, setWinner] = useState(false);
 
   /**
+   * Initializes game mode state
+   */
+  const [gameMode, setGameMode] = useState<GameMode>('lights-out');
+
+  /**
+   * Initializes moves state
+   */
+  const [numClicks, setNumClicks] = useState(0);
+
+  /**
    * Handles the change of the grid size
    */
   const changeGridSize = (size: number) => {
     setGridSize(size);
     initializeBoard(size);
+  };
+
+  /**
+   * Handles changing the game mode
+   */
+  const changeGameMode = (value: boolean) => {
+    setGameMode(value ? 'lights-on' : 'lights-out');
   };
 
   /**
@@ -105,13 +124,20 @@ export const GameController: React.FC = () => {
     toggleCell(positionX - 1, positionY);
     toggleCell(positionX + 1, positionY);
 
-    // const isWinner = checkForWinner(newBoard, gameMode);
-
     const winner = board.every((row) => row.every((cell) => !cell));
 
     setBoard(newBoard);
     setWinner(winner);
-    // setMovesCount((prevState) => prevState + 1);
+    setNumClicks((prevNumClicks) => prevNumClicks + 1);
+  };
+
+  /**
+   * Handles the reset button
+   */
+  const handleResetGame = () => {
+    setBoard([]);
+    setWinner(false);
+    initializeBoard(gridSize);
   };
 
   /**
@@ -124,8 +150,14 @@ export const GameController: React.FC = () => {
 
   return (
     <div>
-      <Title />
-      <GridSizeSelector changeGridSize={changeGridSize} activeSize={gridSize} />
+      <Title gameMode={gameMode} changeGameMode={changeGameMode} />
+      <GameReset handleResetGame={handleResetGame} />
+      {!winner && (
+        <GridSizeSelector
+          changeGridSize={changeGridSize}
+          activeSize={gridSize}
+        />
+      )}
       {!winner && (
         <Board
           board={board}
@@ -138,6 +170,8 @@ export const GameController: React.FC = () => {
           You Win
         </NeonText>
       )}
+
+      <Container>Number of Clicks: {numClicks}</Container>
     </div>
   );
 };
