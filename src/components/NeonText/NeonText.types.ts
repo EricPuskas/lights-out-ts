@@ -1,5 +1,5 @@
 export interface NeonTextProps {
   color: 'blue' | 'orange' | 'green';
-  fontSize: number;
+  fontSize?: number;
   children: React.ReactNode;
 }

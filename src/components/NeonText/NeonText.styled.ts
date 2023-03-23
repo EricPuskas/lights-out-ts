@@ -17,7 +17,7 @@ import { NeonTextProps } from './NeonText.types';
 export const Container = styled('p', {
   shouldForwardProp: (propName) => propName !== 'color',
 })<NeonTextProps>((props) => {
-  const { color } = props;
+  const { color, fontSize } = props;
 
   /**
    * Gets the text color
@@ -110,7 +110,7 @@ export const Container = styled('p', {
     justifyContent: 'center',
     height: '100%',
     color: getTextColor(),
-    fontSize: 80,
+    fontSize: fontSize || 80,
     margin: 0,
     fontFamily: 'neon',
     textShadow: `0 0 3vw ${getTextShadowColor()}`,
