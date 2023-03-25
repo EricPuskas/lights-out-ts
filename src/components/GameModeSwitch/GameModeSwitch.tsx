@@ -12,10 +12,8 @@ import { GameModeSwitchProps } from './GameModeSwitch.types';
 
 export const GameModeSwitch: React.FC<GameModeSwitchProps> = (props) => {
   const { changeGameMode, gameMode } = props;
-  console.log(gameMode);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     changeGameMode(e.target.checked);
-    console.log('test', e.target.checked);
   };
 
   return (
@@ -27,7 +25,7 @@ export const GameModeSwitch: React.FC<GameModeSwitchProps> = (props) => {
           onChange={handleChange}
         />
 
-        <Slider className="slider round" />
+        <Slider className="slider" />
       </Switch>
     </Container>
   );

@@ -124,7 +124,13 @@ export const GameController: React.FC = () => {
     toggleCell(positionX - 1, positionY);
     toggleCell(positionX + 1, positionY);
 
-    const winner = board.every((row) => row.every((cell) => !cell));
+    // const winner = board.every((row) => row.every((cell) => !cell));
+    // const winner = board.every((row) => row.every((cell) => !cell.active));
+    const allCells = newBoard.flat();
+
+    const winner = allCells.every((cell) =>
+      gameMode === 'lights-out' ? !cell.active : cell.active
+    );
 
     setBoard(newBoard);
     setWinner(winner);
