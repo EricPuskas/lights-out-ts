@@ -4,29 +4,21 @@ export const useStopWatch = () => {
   /**
    * Initializes the seconds
    */
-  const [seconds, setSeconds] = useState(0);
+  const [timeElapsed, setTimeElapsed] = useState(0);
+
   /**
-   * Initializes the minutes
+   * Initializes the interval reference
    */
-  const [minutes, setMinutes] = useState(0);
-  /**
-   * Initializes ?
-   */
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<number | null>(null);
+  const seconds = Math.floor((timeElapsed / 1000) % 60);
+  const minutes = Math.floor((timeElapsed / 60000) % 60);
 
   /**
    * Handles the time
    */
   useEffect(() => {
     intervalRef.current = setInterval(() => {
-      setSeconds((prevSeconds) => {
-        if (prevSeconds === 59) {
-          setMinutes((prevMinutes) => prevMinutes + 1);
-          return 0;
-        } else {
-          return prevSeconds + 1;
-        }
-      });
+      setTimeElapsed((prevState) => prevState + 1000);
     }, 1000);
 
     return () => {
@@ -38,8 +30,7 @@ export const useStopWatch = () => {
    * Resets the timer when the game is won or the grid size changes
    */
   const reset = () => {
-    setSeconds(0);
-    setMinutes(0);
+    setTimeElapsed(0);
   };
 
   return { minutes, seconds, reset };
