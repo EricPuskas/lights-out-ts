@@ -12,6 +12,7 @@ import { Board } from '../Board';
 import { GridSizeSelector } from '../GridSizeSelector';
 import { Title } from '../Title';
 import { GameReset } from '../GameReset';
+import { GameTime } from '../GameTime/';
 
 /**
  * Imports types
@@ -124,8 +125,6 @@ export const GameController: React.FC = () => {
     toggleCell(positionX - 1, positionY);
     toggleCell(positionX + 1, positionY);
 
-    // const winner = board.every((row) => row.every((cell) => !cell));
-    // const winner = board.every((row) => row.every((cell) => !cell.active));
     const allCells = newBoard.flat();
 
     const winner = allCells.every((cell) =>
@@ -159,6 +158,11 @@ export const GameController: React.FC = () => {
     <div>
       <Title gameMode={gameMode} changeGameMode={changeGameMode} />
       <GameReset handleResetGame={handleResetGame} />
+      <GameTime
+        gridSize={gridSize}
+        winner={winner}
+        handleResetGame={handleResetGame}
+      />
       {!winner && (
         <GridSizeSelector
           changeGridSize={changeGridSize}
@@ -177,7 +181,6 @@ export const GameController: React.FC = () => {
           You Win
         </NeonText>
       )}
-
       <Container>Number of Moves: {numClicks}</Container>
     </div>
   );
