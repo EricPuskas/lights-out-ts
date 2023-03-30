@@ -9,6 +9,7 @@ import { Container } from './BoardCell.styles';
  * Imports types
  */
 import { BoardCellProps } from './BoardCell.types';
+import { useGame } from '../../hooks';
 
 /**
  * Displays the component

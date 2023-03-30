@@ -1,5 +1,7 @@
-import React from 'react';
+import { useContext } from 'react';
+import { context } from './Context';
+import { GameProvider } from './Provider';
 
-export const useGame = () => {
-  return <div>useGame</div>;
-};
+const useGame = () => useContext(context);
+
+export { useGame, GameProvider };

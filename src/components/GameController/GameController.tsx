@@ -22,7 +22,7 @@ import { Cell, GameMode } from '../../types';
 /**
  * Imports hooks
  */
-import { useLocalStorage } from '../../hooks';
+import { useLocalStorage, useGame } from '../../hooks';
 
 /**
  * Imports styles
@@ -140,6 +140,9 @@ export const GameController: React.FC = () => {
     setWinner(winner);
     setNumClicks((prevNumClicks) => prevNumClicks + 1);
   };
+
+  const result = useGame();
+  console.log(result);
 
   /**
    * Handles the reset button
