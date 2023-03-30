@@ -15,9 +15,9 @@ import { useGame } from '../../hooks';
  * Displays the component
  */
 export const BoardCell: React.FC<BoardCellProps> = (props) => {
-  const { cell, gridSize, board, toggleCellsAround } = props;
+  const { cell } = props;
   const { active, positionX, positionY } = cell;
-
+  const { gridSize, board, toggleCellsAround } = useGame();
   /**
    * Handle click on the cell
    */

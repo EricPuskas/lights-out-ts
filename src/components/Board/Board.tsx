@@ -1,6 +1,7 @@
 /**
  * Imports components
  */
+import { useGame } from '../../hooks';
 import { BoardRow } from '../BoardRow';
 
 /**
@@ -17,22 +18,14 @@ import { BoardProps } from './Board.types';
  * Displays the component
  */
 export const Board: React.FC<BoardProps> = (props) => {
-  const { board, gridSize, toggleCellsAround } = props;
+  const { board, winner } = props;
 
   /**
    * Handles the rendering of the board
    */
   const renderBoard = () => {
-    return board.map((row, key) => (
-      <BoardRow
-        key={key}
-        row={row}
-        gridSize={gridSize}
-        board={board}
-        toggleCellsAround={toggleCellsAround}
-      />
-    ));
+    return board.map((row, key) => <BoardRow key={key} row={row} />);
   };
-
+  if (winner) return null;
   return <Container>{renderBoard()}</Container>;
 };

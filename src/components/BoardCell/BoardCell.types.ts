@@ -8,9 +8,9 @@ import { Cell } from '../../types';
  */
 export interface BoardCellProps {
   cell: Cell;
-  gridSize: number;
-  board: Cell[][];
-  toggleCellsAround: (cell: Cell, board: Cell[][]) => void;
+  // gridSize: number;
+  // board: Cell[][];
+  // toggleCellsAround: (cell: Cell, board: Cell[][]) => void;
 }
 
 /**

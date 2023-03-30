@@ -1,11 +1,11 @@
 import { NeonText } from '../NeonText';
 import { GameModeSwitch } from '../GameModeSwitch';
-import { TitleProps } from './Title.types';
-
+// import { TitleProps } from './Title.types';
+import { useGame } from '../../hooks';
 import { ContainerTitle } from './Title.styled';
 
-export const Title: React.FC<TitleProps> = (props) => {
-  const { gameMode, changeGameMode } = props;
+export const Title: React.FC = () => {
+  const { gameMode, changeGameMode } = useGame();
   return (
     <ContainerTitle>
       <NeonText color="orange">Lights</NeonText>
@@ -13,7 +13,7 @@ export const Title: React.FC<TitleProps> = (props) => {
         {gameMode === 'lights-out' ? 'Out' : 'On'}
       </NeonText>
 
-      <GameModeSwitch gameMode={gameMode} changeGameMode={changeGameMode} />
+      <GameModeSwitch />
     </ContainerTitle>
   );
 };

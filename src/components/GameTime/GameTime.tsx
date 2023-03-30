@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useStopWatch } from '../../hooks/useStopWatch';
-import { GameTimeProps } from './GameTime.types';
+// import { GameTimeProps } from './GameTime.types';
 import { Container } from './GameTime.styled';
+import { useGame } from '../../hooks';
 
-export const GameTime: React.FC<GameTimeProps> = (props) => {
-  const { gridSize, winner, setTimer } = props;
+export const GameTime: React.FC = () => {
+  const { gridSize, winner, setTimer, isReset } = useGame();
   const { minutes, seconds, reset } = useStopWatch();
 
   /**
@@ -14,7 +15,7 @@ export const GameTime: React.FC<GameTimeProps> = (props) => {
   useEffect(() => {
     reset();
     // eslint-disable-next-line
-  }, [gridSize, winner]);
+  }, [gridSize, winner, isReset]);
   useEffect(() => {
     if (winner) {
       setTimer({ minutes, seconds });

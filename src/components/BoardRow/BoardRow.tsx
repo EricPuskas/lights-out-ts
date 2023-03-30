@@ -1,6 +1,7 @@
 /**
  * Imports components
  */
+import { useGame } from '../../hooks';
 import { BoardCell } from '../BoardCell';
 
 /**
@@ -17,7 +18,8 @@ import { BoardRowProps } from './BoardRow.types';
  * Displays the component
  */
 export const BoardRow: React.FC<BoardRowProps> = (props) => {
-  const { row, gridSize, board, toggleCellsAround } = props;
+  const { row } = props;
+  const { gridSize, toggleCellsAround, board } = useGame();
 
   /**
    * Handles the rendering of the cells
