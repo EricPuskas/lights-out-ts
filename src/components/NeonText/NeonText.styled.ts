@@ -9,10 +9,7 @@ import { styled, CSSObject } from '@mui/system';
 import { NeonTextProps } from './NeonText.types';
 
 /**
-
-
-/**
- * Styles the Container 
+ * Styles the Container
  */
 export const Container = styled('p', {
   shouldForwardProp: (propName) => propName !== 'color',

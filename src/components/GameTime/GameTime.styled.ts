@@ -7,14 +7,16 @@ import { styled } from '@mui/system';
 //  */
 export const Container = styled('div')(() => {
   return {
-    // maxWidth: 120,
     display: 'inline-block',
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: '1.2rem',
-    color: 'white',
+    color: 'black',
     margin: '1rem 0',
-    border: 'solid',
     padding: 12,
+    borderRadius: 19,
+    backgroundColor: 'white',
+    border: '4px solid deepskyblue',
+    fontWeight: 'bold',
   };
 });

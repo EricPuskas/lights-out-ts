@@ -1,22 +1,74 @@
 import React, { useState, useEffect } from 'react';
-import { context, ProviderValues, ProviderProps } from './Context';
-import useLocalStorage from 'use-local-storage';
-import { Cell, GameMode } from '../../types';
+
 /**
  * External imports
  */
 import lodash from 'lodash';
 
+/**
+ * Imports the context
+ */
+import { context, ProviderValues, ProviderProps } from './Context';
+
+/**
+ * Imports hooks
+ */
+import useLocalStorage from 'use-local-storage';
+
+/**
+ * Imports types
+ */
+import { Cell, GameMode } from '../../types';
+
+/**
+ * Provides a top level wrapper with the context
+ *
+ * - This is the main provider
+ * - It makes the object available to any child component that calls the hook.
+ */
 export const GameProvider: React.FC<ProviderProps> = (props) => {
   const { children } = props;
+
+  /**
+   * Gets the Provider from the context
+   */
   const { Provider } = context;
+
+  /**
+   * Initializes the board state
+   */
   const [board, setBoard] = useState<Cell[][]>([]);
+
+  /**
+   * Initializes the grid size
+   */
   const [gridSize, setGridSize] = useLocalStorage<number>('gridSize', 3);
+
+  /**
+   * Initializes the winner
+   */
   const [winner, setWinner] = useState(false);
+
+  /**
+   * Initializes game mode state
+   */
   const [gameMode, setGameMode] = useState<GameMode>('lights-out');
+
+  /**
+   * Initializes moves state
+   */
   const [numClicks, setNumClicks] = useState(0);
+
+  /**
+   * Initializer the timer
+   */
   const [timer, setTimer] = useState({ minutes: 0, seconds: 0 });
+
+  /**
+   * Initializes the reset game
+   */
   const [isReset, setIsReset] = useState(false);
+
   /**
    * Handles the change of the grid size
    */
@@ -32,6 +84,9 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     setGameMode(value ? 'lights-on' : 'lights-out');
   };
 
+  /**
+   * Handles the initialization of the board
+   */
   const initializeBoard = (gridSize: number) => {
     const board: Cell[][] = [];
 
@@ -54,7 +109,6 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
   /**
    * Handles toggling the cell at the top, left, bottom, and right of the cell and the cell itself
    */
-
   const toggleCellsAround = (cell: Cell, board: Cell[][]) => {
     const { positionX, positionY } = cell;
 
@@ -117,21 +171,25 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     // eslint-disable-next-line
   }, []);
 
+  /**
+   * Defines the provider value
+   * These values will be available to any children component that calls the hook
+   */
   const providerValue: ProviderValues = {
     board,
-    setBoard,
     gridSize,
-    changeGridSize,
-    initializeBoard,
     winner,
-    numClicks,
-    toggleCellsAround,
-    timer,
-    setTimer,
-    changeGameMode,
-    handleResetGame,
     gameMode,
+    numClicks,
+    timer,
     isReset,
+    changeGridSize,
+    changeGameMode,
+    initializeBoard,
+    toggleCellsAround,
+    handleResetGame,
+    setBoard,
+    setTimer,
   };
   return <Provider value={providerValue}>{children}</Provider>;
 };

@@ -3,6 +3,9 @@
  */
 import { styled } from '@mui/system';
 
+/**
+ * Styles the Container
+ */
 export const Container = styled('div')(() => {
   return {
     display: 'flex',
@@ -13,6 +16,9 @@ export const Container = styled('div')(() => {
   };
 });
 
+/**
+ * Styles the Button
+ */
 export const Button = styled('button')(() => {
   return {
     padding: 20,

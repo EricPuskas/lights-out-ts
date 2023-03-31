@@ -7,7 +7,6 @@ import { styled } from '@mui/system';
 //  */
 export const Container = styled('div')(() => {
   return {
-    // maxWidth: 120,
     display: 'inline-block',
     alignItems: 'center',
     justifyContent: 'center',

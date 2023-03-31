@@ -1,7 +1,16 @@
-import React from 'react';
-import { useGame } from '../../hooks';
+/**
+ * Imports styles components
+ */
 import { Container } from './Timer.styled';
 
+/**
+ * Imports hooks
+ */
+import { useGame } from '../../hooks';
+
+/**
+ * Displays the component
+ */
 export const Timer = () => {
   const { timer, winner } = useGame();
   if (!winner) return null;

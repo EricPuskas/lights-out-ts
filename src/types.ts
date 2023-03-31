@@ -7,4 +7,7 @@ export interface Cell {
   positionY: number;
 }
 
+/**
+ * Defines the type Game Mode
+ */
 export type GameMode = 'lights-out' | 'lights-on';

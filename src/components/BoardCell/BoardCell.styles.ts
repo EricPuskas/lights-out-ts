@@ -3,10 +3,13 @@
  */
 import { styled } from '@mui/system';
 
+/**
+ * Imports types
+ */
 import { ContainerProps } from './BoardCell.types';
 
 /**
- * Styles the container
+ * Styles the Container
  */
 export const Container = styled('div', {
   shouldForwardProp: (propName) =>
@@ -26,7 +29,7 @@ export const Container = styled('div', {
     width: getSize(),
     height: getSize(),
     backgroundColor: '#2633238',
-    transition: 'backgroundColor 0.3s ease ',
+    transition: 'backgroundColor 0.3s ease',
     border: '1px solid black',
     ...(active && {
       backgroundColor: '#f4c50a',

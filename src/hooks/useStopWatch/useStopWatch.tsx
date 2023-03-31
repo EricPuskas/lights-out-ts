@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 
+/**
+ * Displays the component
+ */
 export const useStopWatch = () => {
   /**
    * Initializes the seconds

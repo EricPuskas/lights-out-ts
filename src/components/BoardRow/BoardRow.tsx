@@ -1,13 +1,17 @@
 /**
  * Imports components
  */
-import { useGame } from '../../hooks';
 import { BoardCell } from '../BoardCell';
 
 /**
  * Imports styled components
  */
 import { Container } from './BoardRow.styles';
+
+/**
+ * Imports hooks
+ */
+import { useGame } from '../../hooks';
 
 /**
  * Imports types
@@ -29,9 +33,9 @@ export const BoardRow: React.FC<BoardRowProps> = (props) => {
       <BoardCell
         key={key}
         cell={cell}
-        gridSize={gridSize}
-        board={board}
-        toggleCellsAround={toggleCellsAround}
+        // gridSize={gridSize}
+        // board={board}
+        // toggleCellsAround={toggleCellsAround}
       />
     ));
   };

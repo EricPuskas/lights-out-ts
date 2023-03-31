@@ -1,11 +1,24 @@
+/**
+ * Imports components
+ */
 import { NeonText } from '../NeonText';
 import { GameModeSwitch } from '../GameModeSwitch';
-// import { TitleProps } from './Title.types';
-import { useGame } from '../../hooks';
+
+/**
+ * Imports styles components
+ */
 import { ContainerTitle } from './Title.styled';
 
+/**
+ * Imports hooks
+ */
+import { useGame } from '../../hooks';
+
+/**
+ * Displays the component
+ */
 export const Title: React.FC = () => {
-  const { gameMode, changeGameMode } = useGame();
+  const { gameMode } = useGame();
   return (
     <ContainerTitle>
       <NeonText color="orange">Lights</NeonText>

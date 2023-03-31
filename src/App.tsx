@@ -2,12 +2,11 @@
  * Imports components
  */
 import { GameController } from './components/GameController';
-import { GameProvider } from './hooks';
 
 /**
- * Imports styles
+ * Imports hooks
  */
-import './App.css';
+import { GameProvider } from './hooks';
 
 /**
  * Displays the component

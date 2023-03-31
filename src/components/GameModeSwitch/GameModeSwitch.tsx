@@ -1,5 +1,4 @@
 import React from 'react';
-import { useGame } from '../../hooks';
 
 /**
  * Import styles components
@@ -7,10 +6,13 @@ import { useGame } from '../../hooks';
 import { Switch, Slider, Input, Container } from './GameModeSwitch.styled';
 
 /**
- * Imports types
+ * Imports hooks
  */
-// import { GameModeSwitchProps } from './GameModeSwitch.types';
+import { useGame } from '../../hooks';
 
+/**
+ * Displays the component
+ */
 export const GameModeSwitch: React.FC = () => {
   const { changeGameMode, gameMode } = useGame();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

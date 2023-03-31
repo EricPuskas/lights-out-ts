@@ -3,12 +3,14 @@
  */
 import { styled } from '@mui/system';
 
+/**
+ * Imports types
+ */
 import { ButtonProps } from './GridSizeSelector.types';
 
 /**
- *  Styles the container
+ *  Styles the Container
  */
-
 export const Container = styled('div')(() => {
   return {
     display: 'flex',
@@ -19,6 +21,9 @@ export const Container = styled('div')(() => {
   };
 });
 
+/**
+ *  Styles the Button
+ */
 export const Button = styled('button', {
   shouldForwardProp: (propName) => propName !== 'active',
 })<ButtonProps>((props) => {

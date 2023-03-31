@@ -9,6 +9,4 @@ import { Cell } from '../../types';
 export interface BoardProps {
   board: Cell[][];
   winner: boolean;
-  // gridSize: number;
-  // toggleCellsAround: (cell: Cell, board: Cell[][]) => void;
 }

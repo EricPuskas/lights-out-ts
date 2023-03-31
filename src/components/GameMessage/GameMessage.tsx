@@ -1,10 +1,18 @@
 import React from 'react';
-import { useGame } from '../../hooks';
+
 /**
  * Imports components
  */
 import { NeonText } from '../NeonText';
 
+/**
+ * Imports hooks
+ */
+import { useGame } from '../../hooks';
+
+/**
+ * Displays the component
+ */
 export const GameMessage: React.FC = () => {
   const { winner } = useGame();
   if (!winner) return null;

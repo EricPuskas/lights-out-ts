@@ -4,7 +4,7 @@
 import { styled } from '@mui/system';
 
 /**
- * Styles the container
+ * Styles the Container
  */
 export const Container = styled('div')(() => {
   return {

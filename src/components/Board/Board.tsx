@@ -1,7 +1,6 @@
 /**
  * Imports components
  */
-import { useGame } from '../../hooks';
 import { BoardRow } from '../BoardRow';
 
 /**

@@ -1,8 +1,6 @@
-// export interface GridSizeSelectorProps {
-//   changeGridSize: (size: number) => void;
-//   activeSize: number;
-// }
-
+/**
+ * Defines the Button Props interface
+ */
 export interface ButtonProps {
   active: boolean;
 }

@@ -1,9 +1,18 @@
 import React from 'react';
 
-// import { GameResetProps } from './GameReset.types';
+/**
+ * Import styles components
+ */
 import { Container, Button } from './GameReset.styled';
+
+/**
+ * Imports hooks
+ */
 import { useGame } from '../../hooks';
 
+/**
+ * Displays the component
+ */
 export const GameReset: React.FC = () => {
   const { handleResetGame } = useGame();
 

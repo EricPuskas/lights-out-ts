@@ -8,13 +8,10 @@ import { Cell } from '../../types';
  */
 export interface BoardCellProps {
   cell: Cell;
-  // gridSize: number;
-  // board: Cell[][];
-  // toggleCellsAround: (cell: Cell, board: Cell[][]) => void;
 }
 
 /**
- * Defines the conteainer props interface
+ * Defines the Container props interface
  */
 export interface ContainerProps {
   active: boolean;
