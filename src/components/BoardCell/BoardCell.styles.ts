@@ -13,9 +13,9 @@ import { ContainerProps } from './BoardCell.types';
  */
 export const Container = styled('div', {
   shouldForwardProp: (propName) =>
-    propName !== 'active' && propName !== 'gridSize',
+    propName !== 'active' && propName !== 'gridSize' && propName !== 'isHint',
 })<ContainerProps>((props) => {
-  const { active, gridSize } = props;
+  const { active, gridSize, isHint } = props;
 
   const getSize = () => {
     if (gridSize > 5) return 50;
@@ -34,5 +34,21 @@ export const Container = styled('div', {
     ...(active && {
       backgroundColor: '#f4c50a',
     }),
+  };
+});
+
+/**
+ * Styles the Icon Container
+ */
+export const IconContainer = styled('div')(() => {
+  return {
+    display: 'inline-block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '1.2rem',
+    color: 'white',
+    margin: '1rem 0',
+    border: 'solid',
+    padding: 12,
   };
 });

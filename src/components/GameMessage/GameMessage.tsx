@@ -17,8 +17,9 @@ export const GameMessage: React.FC = () => {
   const { winner } = useGame();
   if (!winner) return null;
   return (
-    <NeonText color="orange" fontSize={120}>
-      You Win
-    </NeonText>
+    <div>
+      <NeonText color="blue">Congratulations!</NeonText>
+      <NeonText color="orange">You Win!</NeonText>
+    </div>
   );
 };

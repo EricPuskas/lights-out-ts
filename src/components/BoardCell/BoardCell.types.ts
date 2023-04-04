@@ -16,4 +16,5 @@ export interface BoardCellProps {
 export interface ContainerProps {
   active: boolean;
   gridSize: number;
+  isHint: boolean;
 }

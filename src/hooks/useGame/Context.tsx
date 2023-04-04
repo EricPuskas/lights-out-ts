@@ -26,9 +26,12 @@ export interface ProviderValues {
     seconds: number;
   };
   isReset: boolean;
+  moves: number[][];
+  hints: number[][];
+
   changeGridSize: (newSize: number) => void;
   changeGameMode: (value: boolean) => void;
-  initializeBoard: (gridSize: number) => void;
+  initializeBoard: (gridSize: number, gameMode: GameMode) => void;
   toggleCellsAround: (cell: Cell, board: Cell[][]) => void;
   handleResetGame: () => void;
   setBoard: React.Dispatch<React.SetStateAction<Cell[][]>>;
@@ -38,6 +41,7 @@ export interface ProviderValues {
       seconds: number;
     }>
   >;
+  setHints: React.Dispatch<React.SetStateAction<number[][]>>;
 }
 
 /**
@@ -54,6 +58,8 @@ export const defautValues: ProviderValues = {
     seconds: 0,
   },
   isReset: false,
+  moves: [],
+  hints: [],
   changeGridSize: () => {},
   changeGameMode: () => {},
   initializeBoard: () => {},
@@ -61,6 +67,7 @@ export const defautValues: ProviderValues = {
   handleResetGame: () => {},
   setBoard: () => {},
   setTimer: () => {},
+  setHints: () => {},
 };
 
 /**

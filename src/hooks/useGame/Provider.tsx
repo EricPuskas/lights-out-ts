@@ -14,6 +14,7 @@ import { context, ProviderValues, ProviderProps } from './Context';
  * Imports hooks
  */
 import useLocalStorage from 'use-local-storage';
+import { useGameUtils } from '../useGameUtils';
 
 /**
  * Imports types
@@ -55,7 +56,7 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
   const [gameMode, setGameMode] = useState<GameMode>('lights-out');
 
   /**
-   * Initializes moves state
+   * Initializes counter of cliks
    */
   const [numClicks, setNumClicks] = useState(0);
 
@@ -70,11 +71,30 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
   const [isReset, setIsReset] = useState(false);
 
   /**
-   * Handles the change of the grid size
+   * Initializes the hints
    */
-  const changeGridSize = (size: number) => {
-    setGridSize(size);
-    initializeBoard(size);
+  const [hints, setHints] = useState<number[][]>([]);
+
+  /**
+   * Initializes the moves
+   */
+  const [moves, setMoves] = useState<number[][]>([]);
+
+  /**
+   * Gets the game utils
+   */
+  const { createSolvableBoard, getUpdatedHints, checkForWinner } =
+    useGameUtils();
+
+  /**
+   * Handles changing the grid size
+   */
+  const changeGridSize = (newGridSize: number) => {
+    setGridSize(newGridSize);
+    initializeBoard(newGridSize, gameMode);
+
+    setMoves([]);
+    setWinner(false);
   };
 
   /**
@@ -85,25 +105,13 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
   };
 
   /**
-   * Handles the initialization of the board
+   * Handles the board initialization
    */
-  const initializeBoard = (gridSize: number) => {
-    const board: Cell[][] = [];
-
-    for (let i = 0; i < gridSize; i++) {
-      const row: Cell[] = [];
-
-      for (let j = 0; j < gridSize; j++) {
-        row.push({
-          active: Math.random() < 0.25,
-          positionX: i,
-          positionY: j,
-        });
-      }
-      board.push(row);
-    }
+  const initializeBoard = (gridSize: number, gameMode: GameMode) => {
+    const { board, clickedCells } = createSolvableBoard(gridSize, gameMode);
 
     setBoard(board);
+    setHints(clickedCells);
   };
 
   /**
@@ -142,7 +150,7 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
 
     setBoard(newBoard);
     setWinner(winner);
-    setNumClicks((prevNumClicks) => prevNumClicks + 1);
+    setMoves((prevState) => [...prevState, [positionX, positionY]]);
   };
 
   /**
@@ -151,9 +159,10 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
   const handleResetGame = () => {
     setBoard([]);
     setWinner(false);
-    initializeBoard(gridSize);
+    initializeBoard(gridSize, gameMode);
     setNumClicks(0);
     setIsReset(true);
+    setMoves([]);
   };
 
   /**
@@ -167,9 +176,20 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
    * Handles the initialization of the board
    */
   useEffect(() => {
-    initializeBoard(gridSize);
+    initializeBoard(gridSize, gameMode);
     // eslint-disable-next-line
   }, []);
+
+  /**
+   * Handles updating the hints
+   */
+  useEffect(() => {
+    if (moves.length > 0 && hints.length > 0) {
+      const updatedHints = getUpdatedHints(board, gameMode, moves, hints);
+      setHints(updatedHints);
+    }
+    // eslint-disable-next-line
+  }, [moves, hints]);
 
   /**
    * Defines the provider value
@@ -183,6 +203,8 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     numClicks,
     timer,
     isReset,
+    moves,
+    hints,
     changeGridSize,
     changeGameMode,
     initializeBoard,
@@ -190,6 +212,7 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     handleResetGame,
     setBoard,
     setTimer,
+    setHints,
   };
   return <Provider value={providerValue}>{children}</Provider>;
 };

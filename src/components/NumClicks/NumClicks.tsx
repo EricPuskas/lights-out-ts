@@ -12,7 +12,7 @@ import { useGame } from '../../hooks';
  * Displays the component
  */
 export const NumClicks = () => {
-  const { numClicks } = useGame();
+  const { moves } = useGame();
 
-  return <Container>Number of Moves: {numClicks}</Container>;
+  return <Container>Number of Moves: {moves.length}</Container>;
 };

@@ -17,7 +17,7 @@ export const Container = styled('div')(() => {
     padding: 12,
     borderRadius: 19,
     backgroundColor: 'white',
-    borderStyle: 'solid',
+    fontWeight: 'bold',
     border: '4px solid deepskyblue',
     marginRight: 10,
   };
