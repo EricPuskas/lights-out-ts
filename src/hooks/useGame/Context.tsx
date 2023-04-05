@@ -28,12 +28,14 @@ export interface ProviderValues {
   isReset: boolean;
   moves: number[][];
   hints: number[][];
-
+  isOpen: boolean;
   changeGridSize: (newSize: number) => void;
   changeGameMode: (value: boolean) => void;
   initializeBoard: (gridSize: number, gameMode: GameMode) => void;
   toggleCellsAround: (cell: Cell, board: Cell[][]) => void;
   handleResetGame: () => void;
+  handleOpenModal: () => void;
+  handleCloseModal: () => void;
   setBoard: React.Dispatch<React.SetStateAction<Cell[][]>>;
   setTimer: React.Dispatch<
     React.SetStateAction<{
@@ -42,6 +44,7 @@ export interface ProviderValues {
     }>
   >;
   setHints: React.Dispatch<React.SetStateAction<number[][]>>;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 /**
@@ -60,14 +63,18 @@ export const defautValues: ProviderValues = {
   isReset: false,
   moves: [],
   hints: [],
+  isOpen: false,
   changeGridSize: () => {},
   changeGameMode: () => {},
   initializeBoard: () => {},
   toggleCellsAround: () => {},
   handleResetGame: () => {},
+  handleOpenModal: () => {},
+  handleCloseModal: () => {},
   setBoard: () => {},
   setTimer: () => {},
   setHints: () => {},
+  setIsOpen: () => {},
 };
 
 /**

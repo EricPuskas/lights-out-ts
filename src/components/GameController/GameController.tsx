@@ -9,6 +9,8 @@ import { GameTime } from '../GameTime/';
 import { Timer } from '../Timer';
 import { NumClicks } from '../NumClicks';
 import { GameMessage } from '../GameMessage';
+import { GameModal } from '../GameModal';
+import { GameHistory } from '../GameHistory';
 
 /**
  * Imports hooks
@@ -31,6 +33,8 @@ export const GameController: React.FC = () => {
       <GameMessage />
       <NumClicks />
       <Timer />
+      {/* <GameModal /> */}
+      <GameHistory />
     </div>
   );
 };

@@ -81,6 +81,11 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
   const [moves, setMoves] = useState<number[][]>([]);
 
   /**
+   * Initializes the modal
+   */
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  /**
    * Gets the game utils
    */
   const { createSolvableBoard, getUpdatedHints, checkForWinner } =
@@ -149,7 +154,7 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     );
 
     setBoard(newBoard);
-    setWinner(winner);
+    setWinner(checkForWinner(newBoard, gameMode));
     setMoves((prevState) => [...prevState, [positionX, positionY]]);
   };
 
@@ -163,6 +168,20 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     setNumClicks(0);
     setIsReset(true);
     setMoves([]);
+  };
+
+  /**
+   * Handles the open modal
+   */
+  const handleOpenModal = () => {
+    setIsOpen(true);
+  };
+
+  /**
+   * Handles the close modal
+   */
+  const handleCloseModal = () => {
+    setIsOpen(false);
   };
 
   /**
@@ -205,14 +224,18 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     isReset,
     moves,
     hints,
+    isOpen,
     changeGridSize,
     changeGameMode,
     initializeBoard,
     toggleCellsAround,
     handleResetGame,
+    handleOpenModal,
+    handleCloseModal,
     setBoard,
     setTimer,
     setHints,
+    setIsOpen,
   };
   return <Provider value={providerValue}>{children}</Provider>;
 };
