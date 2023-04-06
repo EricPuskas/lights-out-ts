@@ -20,6 +20,7 @@ import { useGameUtils } from '../useGameUtils';
  * Imports types
  */
 import { Cell, GameMode } from '../../types';
+import { GameHistoryItem } from '../../components/GameHistory/GameHistory.types';
 
 /**
  * Provides a top level wrapper with the context
@@ -84,6 +85,14 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
    * Initializes the modal
    */
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  /**
+   * Initializes the history stats
+   */
+  const [history, setHistory] = useLocalStorage<GameHistoryItem[]>(
+    'History',
+    []
+  );
 
   /**
    * Gets the game utils
@@ -199,7 +208,33 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     // eslint-disable-next-line
   }, []);
 
+  console.log(history);
+
+  const formatTimer = (timer: { minutes: number; seconds: number }) => {
+    return `${timer.minutes < 10 ? '0' + timer.minutes : timer.minutes}:${
+      timer.seconds < 10 ? '0' + timer.seconds : timer.seconds
+    }`;
+  };
+
+  useEffect(() => {
+    if (timer.minutes > 0 || timer.seconds > 0)
+      setHistory((prevState) => {
+        if (!prevState) return [];
+        return [
+          ...prevState,
+          {
+            id: new Date().getTime(),
+            mode: gameMode,
+            gridSize,
+            moves: moves.length,
+            time: formatTimer(timer),
+          },
+        ];
+      });
+  }, [timer]);
+
   /**
+   *
    * Handles updating the hints
    */
   useEffect(() => {
@@ -225,6 +260,7 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     moves,
     hints,
     isOpen,
+    history,
     changeGridSize,
     changeGameMode,
     initializeBoard,

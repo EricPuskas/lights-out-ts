@@ -4,6 +4,7 @@ import { createContext } from 'react';
  * Imports types
  */
 import { Cell, GameMode } from '../../types';
+import { GameHistoryItem } from '../../components/GameHistory/GameHistory.types';
 
 /**
  * Defines the Provider Props interface
@@ -29,6 +30,7 @@ export interface ProviderValues {
   moves: number[][];
   hints: number[][];
   isOpen: boolean;
+  history: GameHistoryItem[];
   changeGridSize: (newSize: number) => void;
   changeGameMode: (value: boolean) => void;
   initializeBoard: (gridSize: number, gameMode: GameMode) => void;
@@ -64,6 +66,7 @@ export const defautValues: ProviderValues = {
   moves: [],
   hints: [],
   isOpen: false,
+  history: [],
   changeGridSize: () => {},
   changeGameMode: () => {},
   initializeBoard: () => {},

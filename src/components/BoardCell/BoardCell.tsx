@@ -44,7 +44,6 @@ export const BoardCell: React.FC<BoardCellProps> = (props) => {
 
     return x === positionX && y === positionY;
   };
-  console.log(getHintStatus());
 
   return (
     <Container
