@@ -3,8 +3,7 @@ import { createContext } from 'react';
 /**
  * Imports types
  */
-import { Cell, GameMode } from '../../types';
-import { GameHistoryItem } from '../../components/GameHistory/GameHistory.types';
+import { Cell, GameMode, GameHistoryItem } from '../../types';
 
 /**
  * Defines the Provider Props interface
@@ -38,6 +37,8 @@ export interface ProviderValues {
   handleResetGame: () => void;
   handleOpenModal: () => void;
   handleCloseModal: () => void;
+  deleteHistoryItem: (index: number) => void;
+  clearHistory: () => void;
   setBoard: React.Dispatch<React.SetStateAction<Cell[][]>>;
   setTimer: React.Dispatch<
     React.SetStateAction<{
@@ -74,6 +75,8 @@ export const defautValues: ProviderValues = {
   handleResetGame: () => {},
   handleOpenModal: () => {},
   handleCloseModal: () => {},
+  deleteHistoryItem: () => {},
+  clearHistory: () => {},
   setBoard: () => {},
   setTimer: () => {},
   setHints: () => {},

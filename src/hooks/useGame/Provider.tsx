@@ -19,8 +19,7 @@ import { useGameUtils } from '../useGameUtils';
 /**
  * Imports types
  */
-import { Cell, GameMode } from '../../types';
-import { GameHistoryItem } from '../../components/GameHistory/GameHistory.types';
+import { Cell, GameMode, GameHistoryItem } from '../../types';
 
 /**
  * Provides a top level wrapper with the context
@@ -194,6 +193,24 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
   };
 
   /**
+   * Handle the delete history item button
+   */
+  const deleteHistoryItem = (index: number) => {
+    setHistory((prevState) => {
+      if (!prevState) return [];
+      const newHistory = prevState.filter((_, i) => i !== index);
+      return newHistory;
+    });
+  };
+
+  /**
+   * Handle the delete history buton
+   */
+  const clearHistory = () => {
+    setHistory([]);
+  };
+
+  /**
    * Handle the reset timer
    */
   useEffect(() => {
@@ -268,6 +285,8 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     handleResetGame,
     handleOpenModal,
     handleCloseModal,
+    deleteHistoryItem,
+    clearHistory,
     setBoard,
     setTimer,
     setHints,

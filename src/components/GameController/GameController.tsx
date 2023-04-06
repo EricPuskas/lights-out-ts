@@ -9,7 +9,6 @@ import { GameTime } from '../GameTime/';
 import { Timer } from '../Timer';
 import { NumClicks } from '../NumClicks';
 import { GameMessage } from '../GameMessage';
-import { GameModal } from '../GameModal';
 import { GameHistory } from '../GameHistory';
 
 /**
@@ -25,6 +24,13 @@ export const GameController: React.FC = () => {
 
   return (
     <div>
+      <GameHistory
+        id={''}
+        mode={'lights-out'}
+        time={''}
+        moves={0}
+        gridSize={0}
+      />
       <Title />
       <GameReset />
       <GameTime />
@@ -33,8 +39,6 @@ export const GameController: React.FC = () => {
       <GameMessage />
       <NumClicks />
       <Timer />
-      {/* <GameModal /> */}
-      <GameHistory />
     </div>
   );
 };

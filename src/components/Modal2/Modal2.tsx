@@ -12,9 +12,11 @@ import {
  */
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useGame } from '../../hooks';
 
 export const Modal2: React.FC<ModalProps> = (props) => {
   const { open, onClose, children, title } = props;
+  const { history } = useGame();
 
   const preventPropagation = (event: React.MouseEvent<any, MouseEvent>) => {
     event.stopPropagation();
