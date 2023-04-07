@@ -18,14 +18,14 @@ export const HistoryItem: React.FC = () => {
       {history.map((historyItem, index) => {
         return (
           <HistoryStats key={index}>
+            <DeleteButton onClick={() => handleDelete(index)}>
+              <FontAwesomeIcon icon={faTrashAlt} />
+            </DeleteButton>
             <h3>Grid Size: {historyItem.gridSize}</h3>
             <h3>Moves: {historyItem.moves}</h3>
             <h3>Mode: {historyItem.mode}</h3>
             <h3>Time: {historyItem.time}</h3>
-            <h3>Date: {formatTimestamp(historyItem.id as number)}</h3>
-            <DeleteButton onClick={() => handleDelete(index)}>
-              <FontAwesomeIcon icon={faTrashAlt} />
-            </DeleteButton>
+            <h3> {formatTimestamp(historyItem.id as number)}</h3>
           </HistoryStats>
         );
       })}

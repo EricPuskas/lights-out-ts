@@ -15,6 +15,7 @@ import { GameHistory } from '../GameHistory';
  * Imports hooks
  */
 import { useGame } from '../../hooks';
+import { IconHints } from '../IconHints';
 
 /**
  * Displays the component
@@ -31,6 +32,7 @@ export const GameController: React.FC = () => {
         moves={0}
         gridSize={0}
       />
+      <IconHints />
       <Title />
       <GameReset />
       <GameTime />

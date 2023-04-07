@@ -4,6 +4,8 @@
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { useState } from 'react';
+
 /**
  * Imports styled components
  */
@@ -29,7 +31,8 @@ export const BoardCell: React.FC<BoardCellProps> = (props) => {
   /**
    * Gets the game state
    */
-  const { hints, moves, gridSize, board, toggleCellsAround } = useGame();
+  const { hints, moves, gridSize, board, toggleCellsAround, helperOn } =
+    useGame();
 
   /**
    * Handle click on the cell
@@ -39,6 +42,7 @@ export const BoardCell: React.FC<BoardCellProps> = (props) => {
   };
 
   const getHintStatus = () => {
+    if (!helperOn) return false;
     if (moves.length >= hints.length) return false;
     const [x, y] = hints[moves.length];
 

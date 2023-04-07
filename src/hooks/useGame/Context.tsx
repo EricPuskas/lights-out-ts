@@ -30,6 +30,7 @@ export interface ProviderValues {
   hints: number[][];
   isOpen: boolean;
   history: GameHistoryItem[];
+  helperOn: boolean;
   changeGridSize: (newSize: number) => void;
   changeGameMode: (value: boolean) => void;
   initializeBoard: (gridSize: number, gameMode: GameMode) => void;
@@ -48,6 +49,7 @@ export interface ProviderValues {
   >;
   setHints: React.Dispatch<React.SetStateAction<number[][]>>;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setHelperOn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 /**
@@ -68,6 +70,7 @@ export const defautValues: ProviderValues = {
   hints: [],
   isOpen: false,
   history: [],
+  helperOn: false,
   changeGridSize: () => {},
   changeGameMode: () => {},
   initializeBoard: () => {},
@@ -81,6 +84,7 @@ export const defautValues: ProviderValues = {
   setTimer: () => {},
   setHints: () => {},
   setIsOpen: () => {},
+  setHelperOn: () => {},
 };
 
 /**

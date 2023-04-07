@@ -38,6 +38,7 @@ export const ModalContent = styled('div')(() => {
     zIndex: 1000,
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
   };
 });
 

@@ -10,12 +10,9 @@ export const Container = styled('div')(() => {
   return {
     display: 'flex',
     maxWidth: 'max-content',
-    marginLeft: 30,
-    border: '1px solid #fff',
     padding: 10,
-    backgroundColor: 'red',
     flexDirection: 'column',
-    // maxHeight: 300,
+    // maxHeight: 600,
     // overflow: 'auto',
   };
 });
@@ -26,13 +23,12 @@ export const Container = styled('div')(() => {
 export const HistoryStats = styled('div')(() => {
   return {
     display: 'flex',
-    maxWidth: 'max-content',
-    marginLeft: 30,
+    width: 550,
     border: '1px solid #fff',
     padding: 10,
     backgroundColor: 'blue',
-    // maxHeight: 300,
-    // overflow: 'auto',
+    borderRadius: 10,
+    margin: 5,
   };
 });
 
@@ -44,7 +40,8 @@ export const DeleteButton = styled('button')(() => {
     display: 'flex',
     maxWidth: 'max-content',
     padding: 10,
-    backgroundColor: 'red',
+    alignItems: 'center',
+
     // maxHeight: 300,
     // overflow: 'auto',
   };

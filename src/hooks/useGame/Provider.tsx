@@ -93,6 +93,8 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     []
   );
 
+  const [helperOn, setHelperOn] = useState(false);
+
   /**
    * Gets the game utils
    */
@@ -278,6 +280,7 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     hints,
     isOpen,
     history,
+    helperOn,
     changeGridSize,
     changeGameMode,
     initializeBoard,
@@ -291,6 +294,7 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     setTimer,
     setHints,
     setIsOpen,
+    setHelperOn,
   };
   return <Provider value={providerValue}>{children}</Provider>;
 };
