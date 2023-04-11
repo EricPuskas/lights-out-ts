@@ -8,31 +8,39 @@ import { styled } from '@mui/system';
  */
 export const Container = styled('div')(() => {
   return {
-    display: 'inline-block',
-    float: 'left',
-    maxWidth: 'max-content',
-    marginLeft: 30,
-    border: '1px solid deepskyblue',
+    border: '1px solid #263238',
     padding: 10,
-    backgroundColor: '#073b7c',
     borderRadius: 5,
-    // maxHeight: 300,
-    // overflow: 'auto',
+    backgroundColor: '#073b7c',
+    cursor: 'pointer',
+    '& svg': {
+      cursor: 'pointer',
+      fontSize: 30,
+      color: '#000',
+    },
+    '&:hover': {
+      backgroundColor: '#00bfff',
+    },
   };
 });
 
 /**
  *  Styles the Button
  */
-export const Button = styled('div')(() => {
+export const Button = styled('button')(() => {
   return {
-    padding: 20,
-    backgroundColor: '#073b7c',
-    cursor: 'pointer',
     borderRadius: 5,
+    padding: 10,
+    minWidth: 150,
     fontSize: 20,
+    marginBottom: 10,
+    color: '#fff',
+    background: '#d75b5b',
     fontWeight: 'bold',
-    color: 'white',
+    cursor: 'pointer',
+    '&:hover': {
+      background: '#d20101',
+    },
   };
 });
 

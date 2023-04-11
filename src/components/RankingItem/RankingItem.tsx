@@ -5,10 +5,8 @@ import {
   Container,
   Header,
   Date,
-  GameMode,
   Score,
   ScoreItem,
-  GridSize,
 } from './RankingItem.styles';
 
 /**

@@ -224,8 +224,6 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
     // eslint-disable-next-line
   }, []);
 
-  console.log(history);
-
   const formatTimer = (timer: { minutes: number; seconds: number }) => {
     return `${timer.minutes < 10 ? '0' + timer.minutes : timer.minutes}:${
       timer.seconds < 10 ? '0' + timer.seconds : timer.seconds

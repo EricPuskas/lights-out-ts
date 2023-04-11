@@ -23,6 +23,7 @@ export const GridSizeSelector: React.FC = () => {
   ];
 
   if (winner) return null;
+
   return (
     <Container>
       {GridSize.map((size) => (

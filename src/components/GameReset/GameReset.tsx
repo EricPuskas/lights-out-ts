@@ -1,5 +1,3 @@
-import React from 'react';
-
 /**
  * Import styles components
  */
@@ -14,6 +12,9 @@ import { useGame } from '../../hooks';
  * Displays the component
  */
 export const GameReset: React.FC = () => {
+  /**
+   * Gets the game state
+   */
   const { handleResetGame } = useGame();
 
   return (

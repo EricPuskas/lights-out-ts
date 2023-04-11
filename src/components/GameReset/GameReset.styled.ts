@@ -12,7 +12,6 @@ export const Container = styled('div')(() => {
     textAlign: 'center',
     justifyContent: 'center',
     gap: 50,
-    margin: '20px  0',
   };
 });
 
@@ -21,12 +20,15 @@ export const Container = styled('div')(() => {
  */
 export const Button = styled('button')(() => {
   return {
-    padding: 20,
+    padding: 10,
     backgroundColor: '#073b7c',
     cursor: 'pointer',
     borderRadius: 5,
     fontSize: 20,
     fontWeight: 'bold',
     color: 'white',
+    '&:hover': {
+      backgroundColor: '#00bfff',
+    },
   };
 });

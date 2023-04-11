@@ -27,7 +27,8 @@ export const GameTime: React.FC = () => {
   }, [gridSize, winner, isReset, gameMode]);
 
   /**
-   * ?
+   * Updates the timer when the game is won
+   * Used for game stats
    */
   useEffect(() => {
     if (winner) {

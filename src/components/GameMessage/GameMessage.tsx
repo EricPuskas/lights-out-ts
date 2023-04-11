@@ -1,9 +1,8 @@
-import React from 'react';
-
 /**
- * Imports components
+ * Imports  styled components
  */
 import { NeonText } from '../NeonText';
+import { Container } from './GameMessage.styles';
 
 /**
  * Imports hooks
@@ -17,9 +16,9 @@ export const GameMessage: React.FC = () => {
   const { winner } = useGame();
   if (!winner) return null;
   return (
-    <div>
+    <Container>
       <NeonText color="blue">Congratulations!</NeonText>
       <NeonText color="orange">You Win!</NeonText>
-    </div>
+    </Container>
   );
 };

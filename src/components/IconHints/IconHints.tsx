@@ -3,21 +3,36 @@
  */
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+/**
+ * Imports styled components
+ */
 import { Container } from './IconHints.styles';
+
+/**
+ * Imports hooks
+ */
 import { useGame } from '../../hooks';
-import { useState } from 'react';
 
+/**
+ * Displays the component
+ */
 export const IconHints: React.FC = () => {
+  /**
+   * Gets the game state
+   */
   const { helperOn, setHelperOn } = useGame();
-  const [isClicked, setIsClicked] = useState(false);
 
+  /**
+   * Handles the click event
+   */
   const handleClick = () => {
-    setIsClicked(!isClicked);
     setHelperOn(!helperOn);
   };
+
   return (
-    <Container onClick={handleClick}>
-      <FontAwesomeIcon icon={faStar} color={!isClicked ? 'red' : ' '} />
+    <Container helperOn={helperOn} onClick={handleClick}>
+      <FontAwesomeIcon icon={faStar} />
     </Container>
   );
 };

@@ -1,17 +1,42 @@
-import React from 'react';
-import { Container, Button, HistoryContainer } from './GameHistory.styles';
+/**
+ * Imports components
+ */
+import { Modal } from '../Modal';
 import { HistoryItem } from '../HistoryItem';
-import { GameHistoryItem } from '../../types';
 
-import { Modal2 } from '../Modal2';
-import { useGame, useGameUtils, useModal } from '../../hooks';
-
+/**
+ * Imports font awesome
+ */
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const GameHistory: React.FC<GameHistoryItem> = () => {
-  const { open, openModal, closeModal } = useModal();
+/**
+ * Imports styled components
+ */
+import { Container, Button, HistoryContainer } from './GameHistory.styles';
+
+/**
+ * Imports hooks
+ */
+import { useGame, useGameUtils, useModal } from '../../hooks';
+
+/**
+ * Displays the component
+ */
+export const GameHistory: React.FC = () => {
+  /**
+   * Gets the game state
+   */
   const { clearHistory, history } = useGame();
+
+  /**
+   * Gets the modal state
+   */
+  const { open, openModal, closeModal } = useModal();
+
+  /**
+   * Gets utils
+   */
   const { reverseArray } = useGameUtils();
 
   /**
@@ -30,10 +55,10 @@ export const GameHistory: React.FC<GameHistoryItem> = () => {
   return (
     <Container onClick={openModal}>
       <FontAwesomeIcon icon={faHistory} />
-      <Modal2 title="Game History" open={open} onClose={closeModal}>
+      <Modal title="Game History" open={open} onClose={closeModal}>
         <Button onClick={clearHistory}>Clear History</Button>
         <HistoryContainer>{renderHistoryItems()}</HistoryContainer>
-      </Modal2>
+      </Modal>
     </Container>
   );
 };

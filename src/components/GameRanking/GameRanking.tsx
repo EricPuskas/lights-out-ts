@@ -1,7 +1,7 @@
 /**
  * Imports components
  */
-import { Modal2 } from '../Modal2';
+import { Modal } from '../Modal';
 import { RankingItem } from '../RankingItem';
 
 /**
@@ -77,7 +77,7 @@ export const GameRanking: React.FC = () => {
   return (
     <Container onClick={openModal}>
       <FontAwesomeIcon className="Crown" icon={faCrown} />
-      <Modal2 width={900} title="Top scores" open={open} onClose={closeModal}>
+      <Modal width={900} title="Top scores" open={open} onClose={closeModal}>
         <RankingContainer>
           <FlexContainer>
             <GridSizeText> 3x3 </GridSizeText>
@@ -103,7 +103,7 @@ export const GameRanking: React.FC = () => {
             <CategoryContainer>{getTopScore(9, 'lights-on')}</CategoryContainer>
           </FlexContainer>
         </RankingContainer>
-      </Modal2>
+      </Modal>
     </Container>
   );
 };

@@ -12,7 +12,7 @@ export const Container = styled('div')(() => {
     justifyContent: 'center',
     fontSize: '1.2rem',
     color: 'black',
-    margin: '1rem 0',
+    margin: '10px 0',
     padding: 12,
     borderRadius: 19,
     backgroundColor: 'white',

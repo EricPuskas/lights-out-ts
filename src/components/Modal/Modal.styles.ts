@@ -6,7 +6,7 @@ import { styled } from '@mui/system';
 /**
  * Imports types
  */
-import { ContentContainerProps } from './Modal2.types';
+import { ContentContainerProps } from './Modal.types';
 
 /**
  *  Styles the Modal Overlay
@@ -28,24 +28,6 @@ export const ModalOverlay = styled('div')(() => {
     cursor: 'default',
   };
 });
-
-/**
- *  Styles the Modal Content
- */
-// export const ModalContent = styled('div')(() => {
-//   return {
-//     position: 'relative',
-//     width: 600,
-//     height: 'auto',
-//     backgroundColor: '#212121',
-//     borderRadius: 5,
-//     padding: 20,
-//     zIndex: 1000,
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'center',
-//   };
-// });
 
 /**
  * Styles the Modal Content

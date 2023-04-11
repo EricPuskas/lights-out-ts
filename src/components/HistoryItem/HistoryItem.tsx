@@ -27,10 +27,6 @@ export const HistoryItem: React.FC<HistoryItemProps> = (props) => {
   const { deleteHistoryItem } = useGame();
   const { formatTimestamp, formatGridSize } = useGameUtils();
 
-  // const handleDelete = (index: number) => {
-  //   deleteHistoryItem(index);
-  // };
-
   /**
    * Defines the delete handler
    */

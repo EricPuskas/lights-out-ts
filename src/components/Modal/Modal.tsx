@@ -1,13 +1,19 @@
-import ReactDom from 'react-dom';
 /**
- * Imports style
+ * Imports font awesome
  */
-import { ModalOverlay, ModalContent, ModalCloseButton } from './Modal.styled';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /**
- * Imports hooks
+ * Imports styled components
  */
-import { useGame } from '../../hooks';
+import {
+  ModalOverlay,
+  ModalContent,
+  Title,
+  ModalHeader,
+  CloseButton,
+} from './Modal.styles';
 
 /**
  * Imports types
@@ -15,31 +21,39 @@ import { useGame } from '../../hooks';
 import { ModalProps } from './Modal.types';
 
 /**
- * Displays component
+ * Displays the component
  */
 export const Modal: React.FC<ModalProps> = (props) => {
-  const { children } = props;
-  const { isOpen, handleCloseModal } = useGame();
+  const { open, onClose, children, title, width } = props;
 
-  if (!isOpen) {
-    return null;
-  }
+  /**
+   * Prevents propagation of the event to the parent
+   */
+  const preventPropagation = (event: React.MouseEvent<any, MouseEvent>) => {
+    event.stopPropagation();
+  };
 
-  return ReactDom.createPortal(
-    <>
-      <ModalOverlay onClick={handleCloseModal}>
-        <ModalContent
-          style={{
-            width: '80%',
-            maxWidth: 500,
-          }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {children}
-          <ModalCloseButton onClick={handleCloseModal}>Close</ModalCloseButton>
-        </ModalContent>
-      </ModalOverlay>
-    </>,
-    document.getElementById('portal') as HTMLElement
+  /**
+   * Handles closing the modal
+   */
+  const handleClose = (event: React.MouseEvent<any, MouseEvent>) => {
+    preventPropagation(event);
+    onClose();
+  };
+
+  if (!open) return null;
+
+  return (
+    <ModalOverlay onClick={handleClose}>
+      <ModalContent width={width} onClick={preventPropagation}>
+        <ModalHeader>
+          <Title>{title}</Title>
+          <CloseButton onClick={handleClose}>
+            <FontAwesomeIcon icon={faTimes} />
+          </CloseButton>
+        </ModalHeader>
+        {children}
+      </ModalContent>
+    </ModalOverlay>
   );
 };

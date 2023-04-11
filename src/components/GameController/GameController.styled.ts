@@ -2,19 +2,17 @@
 //  */
 import { styled } from '@mui/system';
 
-// /
-//  * Styles the Container
-//  */
+/**
+ * Styles the Container
+ */
 export const Container = styled('div')(() => {
   return {
-    display: 'inline-block',
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: '1.2rem',
-    color: 'white',
-    margin: '1rem 0',
-    border: 'solid',
-    padding: 12,
+    height: '100%',
   };
 });
 

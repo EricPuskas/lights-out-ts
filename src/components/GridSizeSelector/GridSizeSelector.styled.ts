@@ -17,7 +17,7 @@ export const Container = styled('div')(() => {
     textAlign: 'center',
     justifyContent: 'center',
     gap: 50,
-    margin: '20px  0',
+    margin: '10px  0',
   };
 });
 
