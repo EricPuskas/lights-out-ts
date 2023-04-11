@@ -35,11 +35,11 @@ export const Button = styled('button')(() => {
     fontSize: 20,
     marginBottom: 10,
     color: '#fff',
-    background: '#d75b5b',
+    background: '#073b7c',
     fontWeight: 'bold',
     cursor: 'pointer',
     '&:hover': {
-      background: '#d20101',
+      background: '#00bfff',
     },
   };
 });

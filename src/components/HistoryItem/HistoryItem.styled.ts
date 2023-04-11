@@ -51,7 +51,7 @@ export const Score = styled('div')(() => {
 export const ScoreItem = styled('div')(() => {
   return {
     padding: 10,
-    border: '1px solid #fff',
+    border: '4px solid #00bfff',
     borderRadius: 25,
     margin: 5,
     width: 100,
@@ -66,7 +66,7 @@ export const ScoreItem = styled('div')(() => {
  */
 export const Date = styled('div')(() => {
   return {
-    color: '#fed128',
+    color: '#00bfff',
     fontWeight: 'bold',
   };
 });
@@ -76,7 +76,7 @@ export const Date = styled('div')(() => {
  */
 export const GameMode = styled('div')(() => {
   return {
-    color: '#a7ffeb',
+    color: '#00bfff',
     fontWeight: 'bold',
   };
 });
@@ -86,7 +86,7 @@ export const GameMode = styled('div')(() => {
  */
 export const GridSize = styled('div')(() => {
   return {
-    color: '#fa1c16',
+    color: '#00bfff',
     fontWeight: 'bold',
     fontSize: 25,
     bottom: -120,
