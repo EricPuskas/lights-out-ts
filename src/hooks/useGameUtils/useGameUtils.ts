@@ -369,6 +369,24 @@ export const useGameUtils = () => {
     return `${day}-${month}-${year} ${hours}:${minutes}`;
   };
 
+  /**
+   * Handles reversing an array
+   */
+  const reverseArray = (array: any[]) => {
+    const newArray = [];
+
+    for (let i = array.length - 1; i >= 0; i--) {
+      newArray.push(array[i]);
+    }
+
+    return newArray;
+  };
+
+  /**
+   * Formats the grid size
+   */
+  const formatGridSize = (size: number) => `${size}x${size}`;
+
   return {
     solvePuzzle,
     getUpdatedHints,
@@ -376,5 +394,7 @@ export const useGameUtils = () => {
     createSolvableBoard,
     formatBoardToNumbers,
     formatTimestamp,
+    reverseArray,
+    formatGridSize,
   };
 };

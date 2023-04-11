@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useGame } from '../../hooks';
 
 export const Modal2: React.FC<ModalProps> = (props) => {
-  const { open, onClose, children, title } = props;
+  const { open, onClose, children, title, width } = props;
   const { history } = useGame();
 
   const preventPropagation = (event: React.MouseEvent<any, MouseEvent>) => {
@@ -31,7 +31,7 @@ export const Modal2: React.FC<ModalProps> = (props) => {
 
   return (
     <ModalOverlay onClick={handleClose}>
-      <ModalContent onClick={preventPropagation}>
+      <ModalContent width={width} onClick={preventPropagation}>
         <ModalHeader>
           <Title>{title}</Title>
           <CloseButton onClick={handleClose}>

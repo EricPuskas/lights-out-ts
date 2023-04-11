@@ -10,6 +10,9 @@ import { Timer } from '../Timer';
 import { NumClicks } from '../NumClicks';
 import { GameMessage } from '../GameMessage';
 import { GameHistory } from '../GameHistory';
+import { GameRanking } from '../GameRanking';
+
+import { GameOptions } from './GameController.styled';
 
 /**
  * Imports hooks
@@ -25,14 +28,17 @@ export const GameController: React.FC = () => {
 
   return (
     <div>
-      <GameHistory
-        id={''}
-        mode={'lights-out'}
-        time={''}
-        moves={0}
-        gridSize={0}
-      />
-      <IconHints />
+      <GameOptions>
+        <GameHistory
+          id={''}
+          mode={'lights-out'}
+          time={''}
+          moves={0}
+          gridSize={0}
+        />
+        <IconHints />
+        <GameRanking />
+      </GameOptions>
       <Title />
       <GameReset />
       <GameTime />

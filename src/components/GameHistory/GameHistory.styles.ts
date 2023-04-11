@@ -35,3 +35,12 @@ export const Button = styled('div')(() => {
     color: 'white',
   };
 });
+
+export const HistoryContainer = styled('div')(() => {
+  return {
+    maxHeight: 600,
+    overflowY: 'auto',
+    marginTop: 10,
+    width: '100%',
+  };
+});

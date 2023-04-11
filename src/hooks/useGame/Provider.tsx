@@ -197,12 +197,9 @@ export const GameProvider: React.FC<ProviderProps> = (props) => {
   /**
    * Handle the delete history item button
    */
-  const deleteHistoryItem = (index: number) => {
-    setHistory((prevState) => {
-      if (!prevState) return [];
-      const newHistory = prevState.filter((_, i) => i !== index);
-      return newHistory;
-    });
+  const deleteHistoryItem = (id: number) => {
+    const updatedHistory = history.filter((item) => item.id !== id);
+    setHistory(updatedHistory);
   };
 
   /**

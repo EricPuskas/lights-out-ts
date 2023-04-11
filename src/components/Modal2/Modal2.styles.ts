@@ -4,6 +4,11 @@
 import { styled } from '@mui/system';
 
 /**
+ * Imports types
+ */
+import { ContentContainerProps } from './Modal2.types';
+
+/**
  *  Styles the Modal Overlay
  */
 export const ModalOverlay = styled('div')(() => {
@@ -27,10 +32,32 @@ export const ModalOverlay = styled('div')(() => {
 /**
  *  Styles the Modal Content
  */
-export const ModalContent = styled('div')(() => {
+// export const ModalContent = styled('div')(() => {
+//   return {
+//     position: 'relative',
+//     width: 600,
+//     height: 'auto',
+//     backgroundColor: '#212121',
+//     borderRadius: 5,
+//     padding: 20,
+//     zIndex: 1000,
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//   };
+// });
+
+/**
+ * Styles the Modal Content
+ */
+export const ModalContent = styled('div', {
+  shouldForwardProp: (propName) => propName !== 'width',
+})<ContentContainerProps>((props) => {
+  const { width } = props;
+
   return {
     position: 'relative',
-    width: 600,
+    width: width || 600,
     height: 'auto',
     backgroundColor: '#212121',
     borderRadius: 5,
@@ -39,6 +66,7 @@ export const ModalContent = styled('div')(() => {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
   };
 });
 
