@@ -20,5 +20,11 @@ export const Container = styled('div')(() => {
     fontWeight: 'bold',
     border: '4px solid deepskyblue',
     marginRight: 10,
+    '@media (max-width: 768px)': {
+      marginTop: 50,
+    },
+    '@media (max-width: 391px)': {
+      marginTop: 30,
+    },
   };
 });

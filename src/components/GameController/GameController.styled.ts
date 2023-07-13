@@ -28,5 +28,13 @@ export const GameOptions = styled('div')(() => {
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
+    '@media (max-width: 768px)': {
+      top: 30,
+      left: 30,
+    },
+    '@media (max-width: 391px)': {
+      top: 20,
+      left: 20,
+    },
   };
 });

@@ -18,6 +18,14 @@ export const Container = styled('div')(() => {
     justifyContent: 'center',
     gap: 50,
     margin: '10px  0',
+    '@media (max-width: 768px)': {
+      marginTop: 20,
+      marginBottom: 30,
+    },
+    '@media (max-width: 391px)': {
+      marginTop: 20,
+      marginBottom: 20,
+    },
   };
 });
 

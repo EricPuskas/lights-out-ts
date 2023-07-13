@@ -11,6 +11,12 @@ export const Container = styled('div')(() => {
     position: 'relative',
     marginTop: 43,
     marginLeft: 10,
+    '@media (max-width: 768px)': {
+      marginTop: 25,
+    },
+    '@media (max-width: 391px)': {
+      marginTop: 12,
+    },
   };
 });
 
@@ -23,6 +29,14 @@ export const Switch = styled('label')(() => {
     display: 'inline-block',
     width: 60,
     height: 34,
+    '@media (max-width: 768px)': {
+      width: 75,
+      height: 43,
+    },
+    '@media (max-width: 391px)': {
+      width: 50,
+      height: 30,
+    },
   };
 });
 
@@ -69,6 +83,14 @@ export const Slider = styled('span')(() => {
       backgroundColor: 'white',
       transition: '.4s',
       borderRadius: 50,
+      '@media (max-width: 768px)': {
+        width: 35,
+        height: 35,
+      },
+      '@media (max-width: 391px)': {
+        width: 22,
+        height: 22,
+      },
     },
   };
 });

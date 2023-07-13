@@ -18,5 +18,11 @@ export const Container = styled('div')(() => {
     backgroundColor: 'white',
     border: '4px solid deepskyblue',
     fontWeight: 'bold',
+    '@media (max-width: 768px)': {
+      marginTop: 20,
+    },
+    '@media (max-width: 391px)': {
+      marginTop: 20,
+    },
   };
 });
