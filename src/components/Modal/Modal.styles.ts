@@ -40,7 +40,8 @@ export const ModalContent = styled('div', {
   return {
     position: 'relative',
     width: width || 600,
-    height: 'auto',
+
+    height: 650,
     backgroundColor: '#212121',
     borderRadius: 5,
     padding: 20,
@@ -49,11 +50,19 @@ export const ModalContent = styled('div', {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    '@media (max-width: 768px)': {
+      height: 'auto',
+      width: 600,
+    },
+    '@media (max-width: 391px)': {
+      height: 'auto',
+      width: 300,
+    },
   };
 });
 
 /**
- *  Styles the Modal Content
+ *  Styles the Title
  */
 export const Title = styled('h2')(() => {
   return {

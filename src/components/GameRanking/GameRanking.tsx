@@ -75,32 +75,39 @@ export const GameRanking: React.FC = () => {
   if (!history.length) return null;
 
   return (
-    <Container onClick={openModal}>
+    <Container className="top-scores" onClick={openModal}>
       <FontAwesomeIcon className="Crown" icon={faCrown} />
       <Modal width={900} title="Top scores" open={open} onClose={closeModal}>
         <RankingContainer>
-          <FlexContainer>
-            <GridSizeText> 3x3 </GridSizeText>
-            <GridSizeText> 5x5 </GridSizeText>
-            <GridSizeText> 9x9 </GridSizeText>
+          <FlexContainer className="flex-container">
+            <GridSizeText className="grid-size-text"> 3x3 </GridSizeText>
+            <GridSizeText className="grid-size-text"> 5x5 </GridSizeText>
+            <GridSizeText className="grid-size-text"> 9x9 </GridSizeText>
           </FlexContainer>
-          <GameModeText> Lights Out </GameModeText>
-          <FlexContainer>
-            <CategoryContainer>
+          <GameModeText className="game-mode-text"> Lights Out </GameModeText>
+          <FlexContainer className="flex-container">
+            <CategoryContainer className="category-container">
               {getTopScore(3, 'lights-out')}
             </CategoryContainer>
-            <CategoryContainer>
+            <CategoryContainer className="category-container">
               {getTopScore(5, 'lights-out')}
             </CategoryContainer>
-            <CategoryContainer>
+            <CategoryContainer className="category-container">
               {getTopScore(9, 'lights-out')}
             </CategoryContainer>
           </FlexContainer>
-          <GameModeText> Lights On </GameModeText>
-          <FlexContainer>
-            <CategoryContainer>{getTopScore(3, 'lights-on')}</CategoryContainer>
-            <CategoryContainer>{getTopScore(5, 'lights-on')}</CategoryContainer>
-            <CategoryContainer>{getTopScore(9, 'lights-on')}</CategoryContainer>
+          <GameModeText className="game-mode-text"> Lights On </GameModeText>
+          <FlexContainer className="flex-container">
+            <CategoryContainer className="category-container">
+              {getTopScore(3, 'lights-on')}
+            </CategoryContainer>
+            <CategoryContainer className="category-container">
+              {' '}
+              {getTopScore(5, 'lights-on')}
+            </CategoryContainer>
+            <CategoryContainer className="category-container">
+              {getTopScore(9, 'lights-on')}
+            </CategoryContainer>
           </FlexContainer>
         </RankingContainer>
       </Modal>

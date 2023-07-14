@@ -34,35 +34,16 @@ export const HistoryItem: React.FC<HistoryItemProps> = (props) => {
     deleteHistoryItem(id as number);
   };
 
-  // return (
-  //   <Container>
-  //     {history.map((historyItem, index) => {
-  //       return (
-  //         <HistoryStats key={index}>
-  //           <DeleteButton onClick={() => handleDelete(index)}>
-  //             <FontAwesomeIcon icon={faTrashAlt} />
-  //           </DeleteButton>
-  //           <h3>Grid Size: {historyItem.gridSize}</h3>
-  //           <h3>Moves: {historyItem.moves}</h3>
-  //           <h3>Mode: {historyItem.mode}</h3>
-  //           <h3>Time: {historyItem.time}</h3>
-  //           <h3> {formatTimestamp(historyItem.id as number)}</h3>
-  //         </HistoryStats>
-  //       );
-  //     })}
-  //   </Container>
-  // );
-
   return (
     <Container>
-      <Header>
-        <Date> {formatTimestamp(id as number)}</Date>
-        <GridSize>{formatGridSize(gridSize)}</GridSize>
-        <GameMode> Mode: {mode}</GameMode>
+      <Header className="header">
+        <Date className="date"> {formatTimestamp(id as number)}</Date>
+        <GridSize className="gridsize">{formatGridSize(gridSize)}</GridSize>
+        <GameMode className="game-mode"> Mode: {mode}</GameMode>
       </Header>
-      <Score>
-        <ScoreItem> Moves: {moves}</ScoreItem>
-        <ScoreItem> Time: {time}</ScoreItem>
+      <Score className="score">
+        <ScoreItem className="score-item-moves"> Moves: {moves}</ScoreItem>
+        <ScoreItem className="score-item-time"> Time: {time}</ScoreItem>
       </Score>
       <DeleteContainer onClick={handleDelete}>
         <FontAwesomeIcon icon={faTrashAlt} />

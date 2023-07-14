@@ -45,7 +45,11 @@ export const Modal: React.FC<ModalProps> = (props) => {
 
   return (
     <ModalOverlay onClick={handleClose}>
-      <ModalContent width={width} onClick={preventPropagation}>
+      <ModalContent
+        className="modal"
+        width={width}
+        onClick={preventPropagation}
+      >
         <ModalHeader>
           <Title>{title}</Title>
           <CloseButton onClick={handleClose}>

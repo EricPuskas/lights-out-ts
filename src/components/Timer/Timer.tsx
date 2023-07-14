@@ -15,7 +15,7 @@ export const Timer = () => {
   const { timer, winner } = useGame();
   if (!winner) return null;
   return (
-    <Container>
+    <Container className="timer">
       {'Time:'} {timer.minutes < 10 ? '0' + timer.minutes : timer.minutes}:
       {timer.seconds < 10 ? '0' + timer.seconds : timer.seconds}
     </Container>

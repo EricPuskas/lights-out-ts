@@ -1,7 +1,7 @@
 /**
  * Imports styled
  */
-import { styled } from '@mui/system';
+import { styled, width } from '@mui/system';
 
 /**
  * Styles the Container
